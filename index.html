@@ -92,8 +92,8 @@
             <img src="img/arlena.jpg" alt="Aleyna & Arjuna" width="400" height="400">
           </div>
           <div>
-            <h5>masukkan password</h5>
-            <div class="display" id="display">••••</div>
+            <h5 style="text-align: center;">masukkan password</h5>
+            <div class="display" id="display" style="text-align: center;">••••</div>
             <div class="keypad">
               <button onclick="addDigit('1')">1</button>
               <button onclick="addDigit('2')">2</button>
@@ -119,7 +119,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   <script>
     let inputCode = "";
-    const correctCode = "2111"; // Ganti sesuai kebutuhan
+    const correctCode = "0311"; // Ganti sesuai kebutuhan
 
     function updateDisplay() {
       const display = document.getElementById("display");
@@ -141,14 +141,14 @@
     function submitCode() {
       const message = document.getElementById("message");
       if (inputCode === correctCode) {
-        message.textContent = "✅ Passcode benar, redirect...";
+        message.textContent = "✅ Keren! Tunggu ya.";
         message.style.color = "green";
         sessionStorage.setItem("access_granted", "yes");
         setTimeout(() => {
           window.location.href = "home.html"; // Ganti ke halaman tujuan
         }, 1000); // Delay 1 detik sebelum redirect
       } else {
-        message.textContent = "❌ Passcode salah!";
+        message.textContent = "❌ Passcode salah! Hintnya adalah tanggal pertama kita DM-an (DDMM)";
         message.style.color = "red";
       }
       inputCode = "";

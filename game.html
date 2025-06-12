@@ -23,203 +23,255 @@
     }
 
     .center-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-    }
-
-
-    h1 {
-    margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
     }
 
     .game-container {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin: 10px;
     }
 
     .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(4, 100px);
-    gap: 2px;
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-template-rows: repeat(4, 100px);
+      gap: 2px;
     }
 
     #puzzle-board {
-    border: 2px solid #000;
-    background: #ddd;
+      border: 2px solid #000;
+      background: #ddd;
     }
 
     #pieces {
-    border: 2px dashed #888;
-    min-height: 400px;
-    background: #fff;
+      border: 2px dashed #888;
+      min-height: 400px;
+      background: #fff;
+      position: relative;
     }
 
     .cell, .piece {
-    width: 100px;
-    height: 100px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
     }
 
     .piece {
-    background-image: url('img/arlena.jpg'); /* Gambar kamu */
-    background-size: 400px 400px;
-    cursor: grab;
-    pointer-events: auto !important;
-  z-index: 10;
+      background-image: url('img/arlena.jpg');
+      background-size: 400px 400px;
+      cursor: grab;
+      position: relative;
+      z-index: 10;
     }
 
     .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: none; /* default hidden */
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
-  .popup.show {
-    display: flex;
-  }
+    .popup.show {
+      display: flex;
+    }
 
     .popup-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      position: relative;
     }
 
     .popup button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
     }
 
     #no-btn {
-    position: absolute;
+      position: absolute;
     }
 
     @media (max-width: 768px) {
-    .game-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+      .game-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
 
-    .grid {
-      grid-template-columns: repeat(4, 70px);
-      grid-template-rows: repeat(4, 70px);
-    }
+      .grid {
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(4, 50px);
+      }
 
-    .cell, .piece {
-      width: 70px;
-      height: 70px;
-    }
+      .cell, .piece {
+        width: 50px;
+        height: 50px;
+      }
 
-    .piece {
-      background-size: 280px 280px;
-    }
+      .piece {
+        background-size: 200px 200px;
+      }
 
-    #pieces {
-      min-height: 280px;
+      #pieces {
+        min-height: 200px;
+      }
     }
-  }
   </style>
 </head>
 <body>
-    <div class="center-container">
-  <h1>Selesaikan Puzzle Ini</h1>
-  <button onclick="resetPuzzle()">Acak Ulang</button>
-  <div class="game-container">
-    <div id="puzzle-board" class="grid"></div>
-    <div id="pieces" class="grid"></div>
-  </div>
-  
-  <div class="text-center">
+  <div class="center-container">
+    <h1>Selesaikan Puzzle Ini</h1>
+    <button onclick="resetPuzzle()">Acak Ulang</button>
+    <div class="game-container">
+      <div id="puzzle-board" class="grid"></div>
+      <div id="pieces" class="grid"></div>
+    </div>
+    
+    <div class="text-center">
       <a href="menu.html" class="btn btn-outline-light btn-lg px-4 btn-custom">
         <i class="bi bi-arrow-left-circle me-2"></i>Kembali ke Menu
       </a>
     </div>
-  <div id="popup" class="popup hidden">
-    <div class="popup-content">
+
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
         <span class="close-btn" onclick="closePopup()">❌</span>
         <h2>Jadi, apa jawabannya?</h2>
         <div>
-            <button id="yes-btn">Ya</button>
-            <button id="no-btn">Tidak</button>
+          <button id="yes-btn">Ya</button>
+          <button id="no-btn">Tidak</button>
         </div>
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
 
   <script>
+    const puzzleBoard = document.getElementById('puzzle-board');
+    const piecesContainer = document.getElementById('pieces');
+    const popup = document.getElementById('popup');
+    const popupContent = document.querySelector('.popup-content');
+    const noBtn = document.getElementById('no-btn');
+
     function isMobile() {
       return window.innerWidth <= 768;
     }
-    const puzzleBoard = document.getElementById('puzzle-board');
-    const piecesContainer = document.getElementById('pieces');
 
     function createPuzzleBoard() {
-    for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 16; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.dataset.index = i;
         cell.addEventListener('dragover', e => e.preventDefault());
         cell.addEventListener('drop', dropPiece);
         puzzleBoard.appendChild(cell);
-    }
+      }
     }
 
     function createPieces() {
-    let indexes = [...Array(16).keys()];
-    indexes = indexes.sort(() => Math.random() - 0.5);
+      let indexes = [...Array(16).keys()];
+      indexes = indexes.sort(() => Math.random() - 0.5);
 
-    for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 16; i++) {
         const piece = document.createElement('div');
         piece.classList.add('piece');
         piece.draggable = true;
 
         const row = Math.floor(indexes[i] / 4);
         const col = indexes[i] % 4;
-        const size = isMobile() ? 70 : 100;
+        const size = isMobile() ? 50 : 100;
         piece.style.backgroundPosition = `-${col * size}px -${row * size}px`;
         piece.dataset.correctIndex = indexes[i];
         piece.addEventListener('dragstart', dragStart);
+
+        // Touch support
+        piece.addEventListener('touchstart', touchStart, { passive: false });
+        piece.addEventListener('touchmove', touchMove, { passive: false });
+        piece.addEventListener('touchend', touchEnd, { passive: false });
+
         piecesContainer.appendChild(piece);
-    }
+      }
     }
 
     let draggedPiece = null;
+    let touchOffsetX = 0;
+    let touchOffsetY = 0;
 
     function dragStart(e) {
-    draggedPiece = e.target;
+      draggedPiece = e.target;
     }
 
     function dropPiece(e) {
-    if (e.target.classList.contains('cell') && !e.target.firstChild) {
+      if (e.target.classList.contains('cell') && !e.target.firstChild) {
         e.target.appendChild(draggedPiece);
         checkIfComplete();
+      }
     }
+
+    function touchStart(e) {
+      e.preventDefault();
+      draggedPiece = e.target;
+
+      const touch = e.touches[0];
+      const rect = draggedPiece.getBoundingClientRect();
+      touchOffsetX = touch.clientX - rect.left;
+      touchOffsetY = touch.clientY - rect.top;
+
+      draggedPiece.style.position = 'absolute';
+      draggedPiece.style.zIndex = 1000;
+    }
+
+    function touchMove(e) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      draggedPiece.style.left = `${touch.clientX - touchOffsetX}px`;
+      draggedPiece.style.top = `${touch.clientY - touchOffsetY}px`;
+    }
+
+    function touchEnd(e) {
+      e.preventDefault();
+      const touch = e.changedTouches[0];
+
+      const elementsAtPoint = document.elementsFromPoint(touch.clientX, touch.clientY);
+      const cell = elementsAtPoint.find(el => el.classList.contains('cell') && !el.firstChild);
+
+      draggedPiece.style.position = '';
+      draggedPiece.style.left = '';
+      draggedPiece.style.top = '';
+      draggedPiece.style.zIndex = '';
+
+      if (cell) {
+        cell.appendChild(draggedPiece);
+        checkIfComplete();
+      } else {
+        piecesContainer.appendChild(draggedPiece);
+      }
+
+      draggedPiece = null;
     }
 
     function checkIfComplete() {
@@ -232,52 +284,48 @@
         }
       });
       if (correct) {
-        document.getElementById('popup').classList.add('show');
+        popup.classList.add('show');
       }
     }
 
-
     function resetPuzzle() {
-        puzzleBoard.innerHTML = '';
-        piecesContainer.innerHTML = '';
-        createPuzzleBoard();
-        createPieces();
+      puzzleBoard.innerHTML = '';
+      piecesContainer.innerHTML = '';
+      createPuzzleBoard();
+      createPieces();
+    }
+
+    function closePopup() {
+      popup.classList.remove('show');
+    }
+
+    popup.addEventListener('mousemove', function (e) {
+      const rect = noBtn.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const btnX = rect.left + rect.width / 2;
+      const btnY = rect.top + rect.height / 2;
+
+      const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
+
+      if (distance < 100) {
+        teleportNoButton();
+      }
+    });
+
+    function teleportNoButton() {
+      const containerRect = popupContent.getBoundingClientRect();
+      const maxX = containerRect.width - noBtn.offsetWidth;
+      const maxY = containerRect.height - noBtn.offsetHeight;
+
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
     }
 
     resetPuzzle();
-
-    function closePopup() {
-      document.getElementById('popup').classList.remove('show');
-    }
-    const noBtn = document.getElementById('no-btn');
-    const popupContent = document.querySelector('.popup-content');
-
-    popup.addEventListener('mousemove', function (e) {
-        const rect = noBtn.getBoundingClientRect();
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-        const btnX = rect.left + rect.width / 2;
-        const btnY = rect.top + rect.height / 2;
-
-        const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
-
-        if (distance < 100) {
-            teleportNoButton();
-        }
-        });
-
-        function teleportNoButton() {
-        const containerRect = popupContent.getBoundingClientRect();
-        const maxX = containerRect.width - noBtn.offsetWidth;
-        const maxY = containerRect.height - noBtn.offsetHeight;
-
-        // Posisi acak dalam batas container
-        const newX = Math.random() * maxX;
-        const newY = Math.random() * maxY;
-
-        noBtn.style.left = `${newX}px`;
-        noBtn.style.top = `${newY}px`;
-    }
   </script>
 </body>
 </html>

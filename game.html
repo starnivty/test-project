@@ -64,7 +64,7 @@
     }
 
     .piece {
-      background-image: url('img/arlena.jpg');
+      background-image: url('img/puzzle.png');
       background-size: 400px 400px;
       cursor: grab;
       position: relative;
@@ -151,7 +151,7 @@
       <div id="puzzle-board" class="grid"></div>
       <div id="pieces" class="grid"></div>
     </div>
-    
+
     <div class="text-center">
       <a href="menu.html" class="btn btn-outline-light btn-lg px-4 btn-custom">
         <i class="bi bi-arrow-left-circle me-2"></i>Kembali ke Menu
@@ -243,6 +243,7 @@
 
       draggedPiece.style.position = 'absolute';
       draggedPiece.style.zIndex = 1000;
+      document.body.appendChild(draggedPiece); // <- perbaikan penting
     }
 
     function touchMove(e) {
@@ -255,7 +256,6 @@
     function touchEnd(e) {
       e.preventDefault();
       const touch = e.changedTouches[0];
-
       const elementsAtPoint = document.elementsFromPoint(touch.clientX, touch.clientY);
       const cell = elementsAtPoint.find(el => el.classList.contains('cell') && !el.firstChild);
 

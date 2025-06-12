@@ -5,6 +5,13 @@
   <title>Homepage</title>
 </head>
 <body>
-  <h1>Selamat, kamu berhasil masuk!</h1>
+    <h1>Selamat, kamu berhasil masuk!</h1>
+    <script>
+        // Cek apakah user sudah lolos passcode
+        if (sessionStorage.getItem("access_granted") !== "yes") {
+        alert("Kamu belum masuk lewat halaman passcode!");
+        window.location.href = "index.html"; // Balik ke halaman awal
+        }
+    </script>
 </body>
 </html>

@@ -102,6 +102,7 @@
       if (inputCode === correctCode) {
         message.textContent = "✅ Passcode benar, redirect...";
         message.style.color = "green";
+        sessionStorage.setItem("access_granted", "yes");
         setTimeout(() => {
           window.location.href = "home.html"; // Ganti ke halaman tujuan
         }, 1000); // Delay 1 detik sebelum redirect

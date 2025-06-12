@@ -27,40 +27,59 @@
             align-items: center;
             height: 100vh;
         }
+        .card {
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(4px);
+            max-width: 90%;
+        }
+        .bi-bookmark-heart {
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .bi-bookmark-heart {
+                font-size: 30px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="center-container d-flex flex-column">
         <div class="card" style="border-radius: 25px;">
             <div class="card-body">
-                <div class="card-text d-flex align-items-center text-center">
-                    Kita inget-inget dulu yuk apa yang sudah kita lalui selama ini?&nbsp&nbsp<span><i class="bi bi-bookmark-heart"></i></span>
+                <div class="card-text d-flex align-items-center text-center gap-2">
+                    <p style="margin: 0; font-size: 18px; font-weight: bold;">Kita inget-inget dulu yuk apa yang sudah kita lalui selama ini?</p><span><i class="bi bi-bookmark-heart"></i></span>
                 </div>
             </div>
         </div>
         <br>
         <div class="d-flex gap-2">
-            <div class="card" style="border-radius: 25px;">
-                <div class="card-body">
-                    <div class="card-text d-flex flex-column align-items-center text-center">
-                        <i class="bi bi-chat" style="font-size: 3rem;"></i>
+            <a onclick="location.href='chat.html'">
+                <div class="card" style="border-radius: 25px;">
+                    <div class="card-body">
+                        <div class="card-text d-flex flex-column align-items-center text-center">
+                            <i class="bi bi-chat" style="font-size: 3rem;"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card" style="border-radius: 25px;">
-                <div class="card-body">
-                    <div class="card-text d-flex flex-column align-items-center text-center">
-                        <i class="bi bi-camera2" style="font-size: 3rem;"></i>
+            </a>
+            <a onclick="location.href='gallery.html'">
+                <div class="card" style="border-radius: 25px;">
+                    <div class="card-body">
+                        <div class="card-text d-flex flex-column align-items-center text-center">
+                            <i class="bi bi-camera2" style="font-size: 3rem;"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card" style="border-radius: 25px;">
-                <div class="card-body">
-                    <div class="card-text d-flex flex-column align-items-center text-center">
-                        <i class="bi bi-balloon-heart-fill" style="font-size: 3rem;"></i>
+            </a>
+            <a onclick="location.href='letter.html'">
+                <div class="card" style="border-radius: 25px;">
+                    <div class="card-body">
+                        <div class="card-text d-flex flex-column align-items-center text-center">
+                            <i class="bi bi-balloon-heart-fill" style="font-size: 3rem;"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

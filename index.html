@@ -21,7 +21,6 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0;
     }
     .display {
       font-size: 24px;
@@ -58,25 +57,31 @@
   <div class="center-container">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Our Diary</h5>
-        <div class="card-text">
-          <div class="display" id="display">••••</div>
-          <div class="keypad">
-            <button onclick="addDigit('1')">1</button>
-            <button onclick="addDigit('2')">2</button>
-            <button onclick="addDigit('3')">3</button>
-            <button onclick="addDigit('4')">4</button>
-            <button onclick="addDigit('5')">5</button>
-            <button onclick="addDigit('6')">6</button>
-            <button onclick="addDigit('7')">7</button>
-            <button onclick="addDigit('8')">8</button>
-            <button onclick="addDigit('9')">9</button>
-            <button onclick="clearCode()">←</button>
-            <button onclick="addDigit('0')">0</button>
-            <button onclick="submitCode()">✔</button>
+        <h4 class="card-title">To My Dearest, Daniel Artajuna</h5>
+        <div class="card-text d-flex align-items-center gap-4">
+          <div>
+            <img src="arlena.jpg" alt="Girl in a jacket" width="400" height="400">
           </div>
-          <div class="actions">
-            <p id="message"></p>
+          <div>
+            <h5>masukkan password</h5>
+            <div class="display" id="display">••••</div>
+            <div class="keypad">
+              <button onclick="addDigit('1')">1</button>
+              <button onclick="addDigit('2')">2</button>
+              <button onclick="addDigit('3')">3</button>
+              <button onclick="addDigit('4')">4</button>
+              <button onclick="addDigit('5')">5</button>
+              <button onclick="addDigit('6')">6</button>
+              <button onclick="addDigit('7')">7</button>
+              <button onclick="addDigit('8')">8</button>
+              <button onclick="addDigit('9')">9</button>
+              <button onclick="clearCode()">←</button>
+              <button onclick="addDigit('0')">0</button>
+              <button onclick="submitCode()">✔</button>
+            </div>
+            <div class="actions">
+              <p id="message"></p>
+            </div>
           </div>
         </div>
       </div>
